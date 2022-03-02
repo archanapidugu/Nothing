@@ -3,10 +3,23 @@ import React, {useState, useEffect} from 'react';
 
 
 export default function App() {
+  const [posts, setPosts] = useState([]);
+  const fetchPost = async () => {
+    const response = await fetch(
+      "https://api.chucknorris.io/jokes/random"
+    );
+    const data = await response.json();
+    console.log(data);
+    setPosts(data);
+  }
+  useEffect(() => {
+    fetchPost()
+  },[])
+
   return (
     <div className="App">
-      <h1>Hello CodeSandbox</h1>
-      <h2>Start editing to see some magic happen!</h2>
+      <p>{posts.value}</p>
+      <button onClick={fetchPost}>Get new Joke</button>
     </div>
   );
 }
