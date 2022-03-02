@@ -18,8 +18,10 @@ export default function App() {
 
   return (
     <div className="App">
-      <p>{posts.value}</p>
-      <button onClick={fetchPost}>Get new Joke</button>
+          <p>{posts.value}</p>
+          <div className='wrap'>
+            <button className='button' onClick={fetchPost}>Get new Joke</button>
+          </div>
     </div>
   );
 }
